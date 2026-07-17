@@ -1,91 +1,72 @@
-# Projeto de Exemplos Dart
+# Projeto Turma
 
-Este repositório contém exemplos de aplicativos de console escritos em Dart, organizados em três subprojetos:
-
-- `agenda/` — agenda de contatos com CRUD, armazenamento em arquivo e histórico.
-- `aulaexemplo/` — exemplo simples de leitura de nomes via terminal.
-- `turma/` — sistema de gerenciamento de turma, cadastro de alunos, lançamento de notas e exportação JSON.
+Este repositório contém o projeto de gerenciamento de turmas em Dart, desenvolvido como um aplicativo de console.
 
 ## Estrutura do projeto
 
-- `agenda/`
-  - `main.dart` — ponto de entrada do aplicativo de agenda.
-  - `agenda.dart` — classes e métodos de menu, CRUD e persistência.
-  - `contato.dart` — modelos de contato pessoal e empresarial.
-  - `file.txt` — arquivo de dados local usado para salvar contatos.
-  - `README.md` — documentação específica do projeto de agenda.
+- `main.dart` — ponto de entrada do aplicativo
+- `menu.dart` — interface de menu e lógica de interação com o usuário
+- `turma.dart` — gerenciamento de alunos, cadastro de notas, listagem e exportação JSON
+- `aluno.dart` — classe de aluno, cálculo de médias e exibição de notas
+- `nota.dart` — abstração de notas com tipos de prova e trabalho
 
-- `aulaexemplo/`
-  - `aula1.dart` — exemplo de leitura de 10 nomes do usuário e exibição em lista.
-
-- `turma/`
-  - `main.dart` — ponto de entrada do sistema de turma.
-  - `menu.dart` — interface de menu e lógica de interação com o usuário.
-  - `turma.dart` — gerenciamento de alunos, notas e exportação JSON.
-  - `aluno.dart` — modelo de aluno, cálculo de médias e exibição de notas.
-  - `nota.dart` — abstração de notas e tipos de nota com pesos.
-
-## Como executar
-
-Cada subprojeto é um aplicativo Dart independente. Use o terminal no diretório do subprojeto e execute o arquivo `main.dart` ou `aula1.dart`.
-
-Exemplos:
-
-```powershell
-cd c:\Users\gustavo65907866\Documents\Gustavo\flutter\aulas\agenda
-dart run main.dart
-```
-
-```powershell
-cd c:\Users\gustavo65907866\Documents\Gustavo\flutter\aulas\aulaexemplo
-dart run aula1.dart
-```
-
-```powershell
-cd c:\Users\gustavo65907866\Documents\Gustavo\flutter\aulas\turma
-dart run main.dart
-```
-
-## Descrição dos subprojetos
-
-### agenda
-
-Agenda de contatos com as funcionalidades:
-
-- adicionar contatos pessoais ou empresariais
-- listar contatos
-- editar contatos
-- remover contatos
-- buscar contatos por nome, telefone ou email
-- histórico de operações
-- salvar e carregar contatos de `file.txt`
-
-### aulaexemplo
-
-Exemplo simples que:
-
-- lê 10 nomes do usuário
-- armazena em uma lista
-- exibe a lista numerada no terminal
-
-### turma
-
-Sistema de gerenciamento de turma com recursos para:
+## Funcionalidades
 
 - cadastrar alunos
 - lançar notas de prova e trabalho
-- listar notas por aluno ou por turma
-- calcular média aritmética
-- calcular média ponderada
+- listar notas de todos os alunos ou de um aluno específico
+- calcular média aritmética de um aluno
+- calcular média ponderada de um aluno
 - listar alunos cadastrados
-- exportar a turma como JSON
+- exportar dados da turma em formato JSON
+
+## Como executar
+
+1. Abra o terminal no diretório deste projeto.
+
+2. Execute o aplicativo Dart:
+
+```powershell
+dart run main.dart
+```
+
+## Uso
+
+Ao executar, o menu apresenta as opções:
+
+1. Cadastrar aluno
+2. Lançar nota
+3. Listar notas
+4. Calcular média
+5. Calcular média ponderada
+6. Listar alunos
+7. Serialização de turmas (JSON)
+8. Sair
+
+### Cadastrar aluno
+- Insira o nome do aluno para adicioná-lo à turma.
+
+### Lançar nota
+- Escolha se a nota é de `prova` ou `trabalho`.
+- Informe o nome do aluno, o valor da nota e a descrição.
+
+### Listar notas
+- Escolha listar notas de todos os alunos ou de um aluno específico.
+
+### Calcular média
+- Informa a média aritmética das notas de um aluno.
+
+### Calcular média ponderada
+- Informa a média ponderada das notas de um aluno, considerando peso 2 para provas e peso 1 para trabalhos.
+
+### Listar alunos
+- Mostra a lista de alunos cadastrados e, se desejado, suas notas.
+
+### Serialização de turmas (JSON)
+- Exibe os dados da turma em formato JSON.
 
 ## Observações
 
-- Todos os exemplos são aplicativos de linha de comando, não são projetos Flutter.
+- Projeto de linha de comando, não um app Flutter.
 - O Dart SDK deve estar instalado e disponível no PATH.
-- No projeto `agenda`, o arquivo `file.txt` é usado para persistência; se não existir, será criado na primeira execução.
-
-## Referências
-
-- Leia também `agenda/README.md` para detalhes específicos da agenda de contatos.
+- Os dados são mantidos apenas durante a execução do programa; não há persistência em arquivo.
