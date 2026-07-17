@@ -1,6 +1,9 @@
 import 'menu.dart';
+import 'turma.dart';
 
+final turmaModel = Turma(); 
 void main(){
-menu();
-
+  while(true){
+    menu(turmaModel);
+  } 
 }

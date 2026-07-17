@@ -6,36 +6,21 @@ abstract class Nota {
   double get peso;
   String get tipo;
 
-  double get media {
-  if (listaNotas.isEmpty) return 0.0;
+    Map<String, dynamic> toMap() => {
+    'valor': valor,
+    'descricao': descricao,
+    'peso': peso,
+    'tipo': tipo,
+  };
 
-  double soma = 0;
-
-  for (var nota in listaNotas) {
-    soma += nota.valor;
+  void exibirNotas(){
+    print("Nota: ${valor}, Descrição: ${descricao}, Peso: ${peso}");
   }
-
-  return soma / listaNotas.length;
-}
-
-double get mediaPonderada {
-  if (listaNotas.isEmpty) return 0.0;
-
-  double somaPesos = 0;
-  double somaNotas = 0;
-
-  for (var nota in listaNotas) {
-    somaPesos += nota.peso;
-    somaNotas += nota.valor * nota.peso;
-  }
-
-  return somaNotas / somaPesos;
-}
 }
 
 class NotaProva extends Nota {
   @override
-  double get peso => 1.0;
+  double get peso => 2;
   @override
   String get tipo => "Prova";
 
@@ -45,7 +30,7 @@ class NotaProva extends Nota {
 
 class NotaTrabalho extends Nota {
   @override
-  double get peso => 0.5;
+  double get peso => 1;
   @override
   String get tipo => "Trabalho";
 

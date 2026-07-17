@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'nota.dart';
+import 'turma.dart';
 
 class Aluno {
   String nome;
@@ -6,12 +9,14 @@ class Aluno {
   Aluno(this.nome);
 
 
-Aluno alunoModel = Aluno("João");
-
-alunoModel.listaNotas.add(Nota(9.5, "Prova de Matemática"));
-
+void exibirAsNotas() {
+ listaNotas.forEach((nota) {
+    nota.exibirNotas();
+  });
+}
 
 double get media {
+
   if (listaNotas.isEmpty) return 0.0;
 
   double soma = 0;
@@ -37,17 +42,10 @@ double get mediaPonderada {
   return somaNotas / somaPesos;
 }
 
-
-void listarNotas() {
-for (var nota in listaNotas) {
-  print(
-    "Nota: ${nota.valor}", 
-    "Valor: ${nota.valor}", 
-    "Peso: ${nota.peso}");
-}
-
-}
-
+Map<String, dynamic> toMap() => {
+    'nome': nome,
+    'notas': listaNotas.map((n) => n.toMap()).toList(),
+  };
 }
 
 
